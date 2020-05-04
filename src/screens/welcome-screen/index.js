@@ -9,40 +9,40 @@ import { fonts } from '../../theme/fonts'
 import { colors } from '../../theme/colors'
 import Button from '../../components/button'
 import ButtonOutline from '../../components/button-outline'
+const WelcomeScreen = () => {
+  return (
+      <SafeAreaView style={styles.container}>
+        <StatusBar animated translucent={false} barStyle='light-content' />
+        <View>
+          <Header />
 
-const WelcomeScreen = () => (
-  <SafeAreaView style={styles.container}>
-    <StatusBar animated translucent={false} barStyle='light-content' />
-    <View>
-      <Header />
-
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>Banking App</Text>
-        <Text style={styles.subtitle}>Transfer money</Text>
-        <Text style={styles.description}>
-          Simplifies and speeds up{'\n'}
-          processing internantional{'\n'}
-          payments...
-        </Text>
-      </View>
-    </View>
-
-    <View style={styles.buttonsContainer}>
-      <ButtonOutline
-        text='Log in'
-        style={styles.loginButton}
-        icon={
-          <AntDesign
-            name='login'
-            color={colors.white}
-            style={styles.loginButtonIcon}
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>Banking App</Text>
+            <Text style={styles.subtitle}>Transfer money</Text>
+            <Text style={styles.description}>
+              Simplifies and speeds up{'\n'}
+              processing internantional{'\n'}
+              payments...
+            </Text>
+          </View>
+        </View>
+        <View style={styles.buttonsContainer}>
+          <ButtonOutline
+            text='Log in'
+            style={styles.loginButton}
+            icon={
+              <AntDesign
+                name='login'
+                color={colors.white}
+                style={styles.loginButtonIcon}
+              />
+            }
           />
-        }
-      />
-      <Button text='Become a client' style={styles.registerButton} />
-    </View>
-  </SafeAreaView>
-)
+          <Button text='Become a client' style={styles.registerButton}/>
+        </View>
+      </SafeAreaView>
+  )
+};
 
 const styles = StyleSheet.create({
   container: {

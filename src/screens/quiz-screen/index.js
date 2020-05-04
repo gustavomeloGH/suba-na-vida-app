@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import {Asset} from 'expo-asset'
 import {useSafeArea} from "react-native-safe-area-context";
 import {View, Image, ImageBackground, StyleSheet} from 'react-native'
@@ -7,6 +7,8 @@ import Text from "../../components/text";
 import Button from "../../components/button";
 import QuestionCurvedCard from "./QuestionCurvedCard";
 import {colors} from "../../theme/colors";
+import ModalComponent from '../../components/modal/index'
+
 
 const options = [
     'Facilidade de acesso\nao crédito',
@@ -16,17 +18,32 @@ const options = [
 ]
 
 const QuizScreen = () => {
+    
+    const [modalVisible, setModalVisible] = useState(false);
+    const openModal = () => setModalVisible(true);
+    const closeModal = () => setModalVisible(false);
+
     const insets = useSafeArea()
     const teacher = Asset.fromModule(require('../../../assets/teacher.png'))
-    const buttonGreen = Asset.fromModule(require('../../../assets/botton-green.png'))
+    const buttonGreen = Asset.fromModule(require('../../../assets/btn-green.png'))
     return (
         <View style={[styles.container, {paddingTop: insets.top}]}>
+
             <QuestionCurvedCard text={'O que leva as pessoas ao endividamento excessivo?'}/>
             <View style={{flexDirection: 'row'}}>
-
+                <View>
+                    <ModalComponent
+                        text = 'Texto'
+                        imgUrl = 'url'
+                        modalType = 'show'
+                        modalVisible = { modalVisible }
+                        setModalVisible = { setModalVisible }
+                    />
+                </View>
                 <View style={{flexDirection: 'column', marginRight: 20}}>
                     {options.map((option, index) => (
-                        <Button key={`option-${index}`} style={styles.button}>
+                        <Button key={`option-${index}`} style={styles.button} 
+                            onPress={() => openModal() }>
                             <ImageBackground
                                 source={buttonGreen}
                                 resizeMode={'stretch'}
