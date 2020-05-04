@@ -10,9 +10,9 @@ export const fonts = {
     lightItalic: 'SourceSansPro-LightItalic',
   },
   size: {
-    small: 10,
-    regular: 12,
-    medium: 14,
-    big: 16,
+    small: 14,
+    regular: 16,
+    medium: 18,
+    big: 20,
   },
 }
